@@ -1,0 +1,45 @@
+﻿@model  List<Blog.Models.PostB>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<div class="row">
+    <div class="pull-right">
+        @Html.ActionLink("Agregar", "AddEdit")
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+        </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th width="200"></th>
+                        <th width="20"></th>
+                        <th width="5"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var post in Model)
+                    {
+                        <tr>
+                            <td>
+                                <h1>@post.Title</h1>
+                                <h3>@post.Category</h3>
+                                <h6>@post.Date</h6>
+                            </td>
+                            <td> @Html.ActionLink("Editar", "AddEdit", new { id = post.Id })</td>
+                            <td> @Html.ActionLink("Elimnar", "Delete", new { id = post.Id })</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

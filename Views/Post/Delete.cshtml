@@ -1,0 +1,26 @@
+﻿@model Blog.Models.PostB
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Eliminar</h2>
+
+    @using (Html.BeginForm("Delete", "PostB"))
+    {
+        //se envian para cuando hagan el post se
+        @Html.HiddenFor(m => m.Id)
+
+    <p>
+        ¿Esta seguro que desea eliminar el post @Model.Title?
+    </p>
+
+        <p>
+            @Html.ActionLink("Cancelar", "Index")
+            <input type="submit" value="Si,eliminar" />
+        </p>
+    }
+
+</div>
